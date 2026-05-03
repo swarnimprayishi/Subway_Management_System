@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modernized UI inside the container */
+        :root {
+            --card-bg: #1e293b;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --text-dim: #94a3b8;
+        }
+
+        .orders-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            font-family: sans-serif;
+            /* Added the line below to center your heading and loading text */
+            text-align: center;
+        }
+
+        .order-card {
+            background: var(--card-bg);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #334155;
+            /* Ensures card content remains left-aligned */
+            text-align: left;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .order-header strong {
+            font-size: 18px;
+            color: var(--accent-blue);
+        }
+
+        .status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Status Colors */
+        .pending {
+            background: #7f1d1d;
+            color: #fca5a5;
+            border: 1px solid var(--accent-red);
+        }
+
+        .confirmed {
+            background: #064e3b;
+            color: #6ee7b7;
+            border: 1px solid var(--accent-green);
+        }
+
+        .cancelled {
+            background: #334155;
+            color: #94a3b8;
+            border: 1px solid #475569;
+        }
+
+        .order-items {
+            margin: 15px 0;
+            padding: 10px 0;
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+            font-size: 15px;
+        }
+
+        .order-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .confirm-btn {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .cancel-btn {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        body {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>📦 Campus Clique - My Orders</header>
+
+    <div style="background: #0f172a; color: #94a3b8; padding: 10px; text-align: center;">
+        Welcome, <span class="user-display-name" style="color: #3b82f6; font-weight: bold;"></span>! | <a href="#"
+            onclick="logout()" style="color: #ef4444; margin-left: 15px;">Logout</a>
+    </div>
+
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="food.html">Food</a>
+        <a href="salon.html">Salon</a>
+        <a href="grocery.html">Grocery</a>
+        <a href="playzone.html">Play Zone</a>
+        <a href="gifts.html">Gifts</a>
+        <a href="juice.html">Juice</a>
+        <a href="bakery.html">Bakery</a>
+        <a href="orders.html" onclick="showOrders()">My Orders</a>
+
+        <a href="admin.html" class="admin-btn">🛡️ Admin</a>
+
+    </nav>
+
+    <div class="orders-container" id="ordersContainer">
+        <h2>My Orders</h2>
+        <p>Loading orders...</p>
+    </div>
+
+    <script>
+
+        // Add this at the start of your script section
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        async function loadOrders() {
+            try {
+                const res = await fetch('http://localhost:3000/api/orders');
+                let orders = await res.json();
+
+                // Filter orders by user roll number so they only see their own
+                const userRoll = sessionStorage.getItem('rollNumber');
+                const userRole = sessionStorage.getItem('userRole');
+
+                if (userRole !== 'admin') {
+                    orders = orders.filter(order => order.rollNumber === userRoll);
+                }
+                const container = document.getElementById('ordersContainer');
+
+                if (orders.length === 0) {
+                    container.innerHTML = "<h2>No Orders Found</h2>";
+                    return;
+                }
+
+                container.innerHTML = "<h2>My Orders</h2>";
+
+                orders.forEach(order => {
+                    const orderDiv = document.createElement('div');
+                    orderDiv.className = "order-card";
+
+                    const isPending = order.status === 'pending';
+
+                    orderDiv.innerHTML = `
+                <div class="order-header">
+                    <div>
+                        <strong>${order.name}</strong><br>
+                        <small style="color:var(--text-dim)">${order.type}</small>
+                    </div>
+                    <div class="status ${order.status}">
+                        ${order.status}
+                    </div>
+                </div>
+
+                <div class="order-items">
+                    <span>📦 ${order.item} x ${order.quantity}</span>
+                </div>
+
+                <div class="order-footer">
+                    <div>
+                        <span class="total-price">Total: ₹${order.total}</span><br>
+                        <small style="color:var(--text-dim)">${order.notes || "No notes"}</small>
+                    </div>
+                    <div class="btn-group">
+                        ${isPending ? `
+                            <button class="btn confirm-btn" onclick="handleAction('${order.id}', 'confirmed')">Confirm</button>
+                            <button class="btn cancel-btn" onclick="handleAction('${order.id}', 'cancelled')">Cancel</button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+                    container.appendChild(orderDiv);
+                });
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('ordersContainer').innerHTML = "Error loading orders";
+            }
+        }
+
+        async function handleAction(id, newStatus) {
+            const message = newStatus === 'confirmed' ? "Confirm this order?" : "Cancel this order?";
+            if (!confirm(message)) return;
+
+            try {
+                await fetch(`http://localhost:3000/api/orders/${id}`, {
+                    method: newStatus === 'cancelled' ? "DELETE" : "PATCH",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+
+                alert(`Order ${newStatus}`);
+                loadOrders();
+
+            } catch (err) {
+                alert(`Failed to ${newStatus} order`);
+            }
+        }
+
+        loadOrders();
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userRole = sessionStorage.getItem('userRole');
+            const adminBtns = document.querySelectorAll('.admin-btn');
+            if (userRole !== 'admin') {
+                adminBtns.forEach(btn => btn.style.display = 'none');
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const name = sessionStorage.getItem('userName');
+
+            // Update all welcome texts
+            const displayNames = document.querySelectorAll('.user-display-name');
+            displayNames.forEach(el => { el.innerText = name || 'User'; });
+
+            // Auto-fill the order form name field
+            const nameInput = document.getElementById('name');
+            if (nameInput) {
+                nameInput.value = name || '';
+                nameInput.setAttribute('readonly', 'true');
+                nameInput.style.backgroundColor = '#1e293b'; // slightly darker to indicate it's readonly
+                nameInput.style.color = '#94a3b8';
+                nameInput.style.cursor = 'not-allowed';
+            }
+        });
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+
+</body>
+
+</html>
