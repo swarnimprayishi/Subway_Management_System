@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Campus Clique</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                              url('https://www.vitamojo.com/wp-content/uploads/Subway-and-vita-mojo-kiosks-02.png');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .login-box {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 { margin-bottom: 25px; color: #3b82f6; }
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+
+        label { display: block; margin-bottom: 8px; color: #94a3b8; font-size: 14px; }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #3b82f6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>📦 Campus Clique</h2>
+    <p style="color: #94a3b8;">Login to continue</p>
+    
+    <form id="loginForm">
+        <div class="input-group">
+            <label>I am a:</label>
+            <select id="userRole" required>
+                <option value="">Select Role</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>University ID:</label>
+            <input type="text" id="rollNumber" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password:</label>
+            <input type="password" id="loginPassword" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+        <p style="margin-top: 15px; font-size: 14px; color: #94a3b8;">
+            New to Campus Clique? <a href="signup.html" style="color: #3b82f6; text-decoration: none; font-weight: bold;">Sign up here</a>
+        </p>
+    </form>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const role = document.getElementById('userRole').value;
+    const roll = document.getElementById('rollNumber').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+
+    if(role && roll && password) {
+        try {
+            const response = await fetch(`http://localhost:3000/api/users/${roll}`);
+            
+            if (response.ok) {
+                const user = await response.json();
+
+                if (user.password !== password) {
+                    alert("Incorrect password!");
+                    return;
+                }
+                if (user.role !== role) {
+                    alert("Incorrect role selected!");
+                    return;
+                }
+
+                // Save session
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('userName', user.name);
+                sessionStorage.setItem('userRole', user.role);
+                sessionStorage.setItem('rollNumber', roll);
+
+                // Role-based redirect
+                if (user.role === "admin") {
+                    window.location.href = "admin.html";
+                } else {
+                    window.location.href = "index.html";
+                }
+
+            } else {
+                alert("User not found.");
+            }
+        } catch (error) {
+            alert("Server not running!");
+        }
+    } else {
+        alert("Fill all fields");
+    }
+});
+</script>
+
+</body>
+</html>
