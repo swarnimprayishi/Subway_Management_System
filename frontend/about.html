@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GD Subway</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header> Campus Clique Subway Management System</header>
+
+<div style="background: #0f172a; color: #94a3b8; padding: 10px; text-align: center;">
+    Welcome, <span class="user-display-name" style="color: #3b82f6; font-weight: bold;"></span>! | <a href="#" onclick="logout()" style="color: #ef4444; margin-left: 15px;">Logout</a>
+</div>
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="food.html">Food</a>
+    <a href="salon.html">Salon</a>
+    <a href="grocery.html">Grocery</a>
+    <a href="playzone.html">Play Zone</a>
+    <a href="gifts.html">Gifts</a>
+    <a href="juice.html">Juice</a>
+    <a href="bakery.html">Bakery</a>
+</nav>
+
+<div class="hero main-hero">
+    <div class="hero-badge">
+        <span class="status-dot"></span>
+        Learn More About Us
+    </div>
+    <h1>Inside GD Subway</h1>
+    <p>Everything you need to know about the Campus Life Hub.</p>
+</div>
+
+<div class="container" id="about-content" style="padding: 50px 20px; color: white; max-width: 900px; margin: auto;">
+    
+    <section class="about-section">
+        <h2> Our Vision</h2>
+        <p>GD Subway is designed to be the ultimate digital companion for GLA University students. We aim to bridge the gap between campus services and students by providing a seamless, one-stop platform for all your daily needs.</p>
+        <p>Need a quick snack, grooming session, or last-minute grocery run? We’ve got you covered.</p>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #334155; margin: 40px 0;">
+
+    <section class="about-section">
+        <h2> What We Offer</h2>
+        <p>Whether you're hungry after a long lecture, need a quick haircut, or want to surprise a friend with a gift, we've got you covered. Our integrated system connects you directly to:</p>
+        
+        <ul style="list-style: none; padding: 10px; line-height: 2;">
+            <li>🍔 <strong>Multi-Cuisine Food:</strong> Order from the best campus kitchens.</li>
+            <li>💇 <strong>Professional Salon:</strong> Book your grooming slots in advance.</li>
+            <li>🎮 <strong>Play Zone:</strong> Reserve your spot for gaming and relaxation.</li>
+            <li>🛒 <strong>Grocery & Essentials:</strong> Get daily needs delivered to your hostel.</li>
+        </ul>
+    </section>
+
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="index.html" class="btn-primary" style="display: inline-block; padding: 15px 30px; text-decoration: none; border-radius: 8px;">Back to Services</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        © 2026 GD Subway | All Rights Reserved
+    </div>
+</footer>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const userRole = sessionStorage.getItem('userRole');
+        const adminBtns = document.querySelectorAll('.admin-btn');
+        if (userRole !== 'admin') {
+            adminBtns.forEach(btn => btn.style.display = 'none');
+        }
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const name = sessionStorage.getItem('userName');
+    
+    // Update all welcome texts
+    const displayNames = document.querySelectorAll('.user-display-name');
+    displayNames.forEach(el => { el.innerText = name || 'User'; });
+    
+    // Auto-fill the order form name field
+    const nameInput = document.getElementById('name');
+    if (nameInput) {
+        nameInput.value = name || '';
+        nameInput.setAttribute('readonly', 'true');
+        nameInput.style.backgroundColor = '#1e293b'; // slightly darker to indicate it's readonly
+        nameInput.style.color = '#94a3b8';
+        nameInput.style.cursor = 'not-allowed';
+    }
+});
+
+function logout() {
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+}
+</script>
+
+</body>
+
+</html>
