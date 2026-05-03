@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bakery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bakery-page">
+
+<header>🎂 Cake Bakery</header>
+
+<div style="background: #0f172a; color: #94a3b8; padding: 10px; text-align: center;">
+    Welcome, <span class="user-display-name" style="color: #3b82f6; font-weight: bold;"></span>! | <a href="#" onclick="logout()" style="color: #ef4444; margin-left: 15px;">Logout</a>
+</div>
+
+
+<nav>
+<a href="index.html">Home</a>
+<a href="food.html">Food</a>
+<a href="salon.html">Salon</a>
+<a href="grocery.html">Grocery</a>
+<a href="playzone.html">Play Zone</a>
+<a href="gifts.html">Gifts</a>
+<a href="juice.html">Juice</a>
+<a href="bakery.html">Bakery</a>
+<a href="orders.html" onclick="showOrders()">My Orders</a>
+
+<a href="admin.html" class="admin-btn">🛡️ Admin</a>
+  
+</nav>
+
+<!-- =======================
+     HERO SECTION
+======================= -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="delivery-pill">
+      <span class="status-dot"></span>
+      Sweet treats, sweeter moments
+    </div>
+
+    <h1>Fresh Cakes, Sweet Moments 🍰</h1>
+    <p>Order your favorite cake for every celebration</p>
+
+  </div>
+</section>
+
+<!-- =======================
+     🧁 CAKE PRODUCTS (LIKE JUICE)
+======================= -->
+<section class="juice-products">
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="https://assets.winni.in/product/primary/2023/3/83221.jpeg?dpr=2&w=220">
+      <h3>Chocolate Truffle Cake</h3>
+    </div>
+
+    <div class="product-card">
+      <img src="https://justbakedcake.com/wp-content/uploads/2022/08/Vanilla-gateaux.jpg">
+      <h3>Vanilla Cream Cake</h3>
+    </div>
+
+    <div class="product-card">
+      <img src="https://cdn.prod.website-files.com/614a379840dbad1848e598c2/679906d29abceb2bbceb06b3_6799062816366d61273c52b4_IMG_1560.jpeg">
+      <h3>Red Velvet Cake</h3>
+    </div>
+
+  </div>
+</section>
+
+<div class="juice-card">
+  <h2>Order Cake</h2>
+
+  <form id="bakeryForm">
+
+    <input type="text" id="name" placeholder="Name" required>
+
+    <select id="item" required>
+      <option value="">Select Cake</option>
+      <option value="Chocolate Cake">Chocolate Cake - ₹600</option>
+      <option value="Vanilla Cake">Vanilla Cake - ₹150</option>
+      <option value="Red Velvet">Red Velvet - ₹120</option>
+      <option value="Dark Chocolate Truffle">Dark Chocolate Truffle - ₹600</option>
+<option value="Milk Chocolate Cake">Milk Chocolate Cake - ₹550</option>
+<option value="German Chocolate Cake">German Chocolate Cake - ₹750</option>
+<option value="Black Forest Cake">Black Forest Cake - ₹525</option>
+<option value="White Forest Cake">White Forest Cake - ₹550</option>
+<option value="Devil's Food Cake">Devil's Food Cake - ₹650</option>
+<option value="Molten Lava Cake">Molten Lava Cake (per unit) - ₹150</option>
+<option value="Flourless Chocolate Cake">Flourless Chocolate Cake - ₹800</option>
+<option value="Mississippi Mud Cake">Mississippi Mud Cake - ₹700</option>
+<option value="Sacher Torte">Sacher Torte - ₹900</option>
+<option value="Chocolate Brownie Cake">Chocolate Brownie Cake - ₹600</option>
+<option value="Marble Cake">Marble Cake - ₹500</option>
+<option value="Chocolate Peanut Butter">Chocolate Peanut Butter - ₹650</option>
+<option value="Triple Chocolate Mousse">Triple Chocolate Mousse - ₹750</option>
+<option value="Chocolate Ganache">Chocolate Ganache - ₹650</option>
+<option value="Mint Chocolate Chip">Mint Chocolate Chip - ₹600</option>
+<option value="Chocolate Malt Cake">Chocolate Malt Cake - ₹625</option>
+
+<option value="Apple Cinnamon Cake">Apple Cinnamon Cake - ₹550</option>
+<option value="Banana Walnut Cake">Banana Walnut Cake - ₹450</option>
+<option value="Fresh Strawberry Cake">Fresh Strawberry Cake - ₹650</option>
+<option value="Lemon Drizzle Cake">Lemon Drizzle Cake - ₹500</option>
+<option value="Pineapple Upside-Down">Pineapple Upside-Down - ₹550</option>
+<option value="Blueberry Burst Cake">Blueberry Burst Cake - ₹700</option>
+<option value="Mango Alphonso Cake">Mango Alphonso Cake - ₹650</option>
+<option value="Passion Fruit Cake">Passion Fruit Cake - ₹850</option>
+<option value="Orange Blossom Cake">Orange Blossom Cake - ₹600</option>
+<option value="Raspberry Ripple">Raspberry Ripple - ₹750</option>
+<option value="Cherry Almond Cake">Cherry Almond Cake - ₹650</option>
+<option value="Key Lime Cake">Key Lime Cake - ₹700</option>
+<option value="Coconut Cream Cake">Coconut Cream Cake - ₹600</option>
+<option value="Classic Carrot Cake">Classic Carrot Cake - ₹650</option>
+<option value="Hummingbird Cake">Hummingbird Cake - ₹800</option>
+<option value="Cranberry Orange Cake">Cranberry Orange Cake - ₹650</option>
+<option value="Peach Cobbler Cake">Peach Cobbler Cake - ₹600</option>
+<option value="Fig & Honey Cake">Fig & Honey Cake - ₹750</option>
+<option value="Date and Walnut">Date and Walnut - ₹550</option>
+<option value="Blackberry Jam Cake">Blackberry Jam Cake - ₹600</option>
+
+<option value="Authentic Tiramisu">Authentic Tiramisu - ₹950</option>
+<option value="Opera Cake">Opera Cake - ₹1,050</option>
+<option value="Russian Honey Cake">Russian Honey Cake (Medovik) - ₹1,100</option>
+<option value="Tres Leches">Tres Leches (3 Milk) - ₹850</option>
+<option value="Baumkuchen">Baumkuchen - ₹1,200</option>
+<option value="Dobos Torte">Dobos Torte - ₹950</option>
+<option value="Pavlova">Pavlova (Whole) - ₹800</option>
+<option value="Basbousa">Basbousa (Semolina) - ₹400</option>
+<option value="Panettone">Panettone (Seasonal) - ₹1,200</option>
+<option value="Pandoro">Pandoro - ₹1,100</option>
+<option value="Madeleines">Madeleines (Dozen) - ₹450</option>
+<option value="Financier">Financier (Dozen) - ₹550</option>
+<option value="Chocolate Babka">Chocolate Babka - ₹600</option>
+<option value="Stollen">Stollen - ₹950</option>
+<option value="Mooncake">Mooncake (per unit) - ₹300</option>
+<option value="Cassava Cake">Cassava Cake - ₹500</option>
+<option value="French Genoise">French Genoise - ₹600</option>
+<option value="Chiffon Cake">Chiffon Cake - ₹550</option>
+<option value="Japanese Castella">Japanese Castella - ₹750</option>
+<option value="Swedish Princess Cake">Swedish Princess Cake - ₹1,300</option>
+
+<option value="New York Cheesecake">New York Cheesecake - ₹850</option>
+<option value="Japanese Soufflé Cheesecake">Japanese Soufflé Cheesecake - ₹750</option>
+<option value="Basque Burnt Cheesecake">Basque Burnt Cheesecake - ₹900</option>
+<option value="Boston Cream Pie">Boston Cream Pie - ₹700</option>
+<option value="Italian Cream Cake">Italian Cream Cake - ₹800</option>
+<option value="Butterscotch Caramel">Butterscotch Caramel - ₹550</option>
+<option value="Sticky Toffee Cake">Sticky Toffee Cake - ₹600</option>
+<option value="Almond Joy Cake">Almond Joy Cake - ₹750</option>
+<option value="Pistachio Rose Cake">Pistachio Rose Cake - ₹950</option>
+<option value="Hazelnut Praline">Hazelnut Praline - ₹875</option>
+<option value="Classic Walnut Cake">Classic Walnut Cake - ₹650</option>
+<option value="Macadamia Nut Cake">Macadamia Nut Cake - ₹900</option>
+<option value="Pecan Pie Cake">Pecan Pie Cake - ₹850</option>
+<option value="Coconut Macaroon Cake">Coconut Macaroon Cake - ₹600</option>
+<option value="Sour Cream Pound Cake">Sour Cream Pound Cake - ₹500</option>
+<option value="Buttermilk Vanilla">Buttermilk Vanilla - ₹475</option>
+<option value="Ricotta Lemon Cake">Ricotta Lemon Cake - ₹700</option>
+<option value="Mascarpone Berry Cake">Mascarpone Berry Cake - ₹900</option>
+<option value="Cinnamon Coffee Cake">Cinnamon Coffee Cake - ₹550</option>
+<option value="Espresso Mocha Cake">Espresso Mocha Cake - ₹650</option>
+
+<option value="Funfetti Birthday Cake">Funfetti Birthday Cake - ₹600</option>
+<option value="Rainbow 7-Layer Cake">Rainbow 7-Layer Cake - ₹950</option>
+<option value="Confetti Sprinkles">Confetti Sprinkles - ₹550</option>
+<option value="Cookies and Cream">Cookies and Cream (Oreo) - ₹650</option>
+<option value="S'mores Campfire Cake">S'mores Campfire Cake - ₹750</option>
+<option value="Rocky Road Cake">Rocky Road Cake - ₹700</option>
+<option value="Caramel Macchiato">Caramel Macchiato - ₹650</option>
+<option value="Salted Caramel Drip">Salted Caramel Drip - ₹680</option>
+<option value="Honey Lavender">Honey Lavender - ₹850</option>
+<option value="Earl Grey Tea Cake">Earl Grey Tea Cake - ₹750</option>
+<option value="Matcha Green Tea">Matcha Green Tea - ₹900</option>
+<option value="Chai Spice Cake">Chai Spice Cake - ₹600</option>
+<option value="Gingerbread Spice">Gingerbread Spice - ₹550</option>
+<option value="Pumpkin Spice">Pumpkin Spice - ₹600</option>
+<option value="Eggless Rum Cake">Eggless Rum Cake - ₹750</option>
+<option value="Angel Food Cake">Angel Food Cake - ₹600</option>
+<option value="Victoria Sponge">Victoria Sponge - ₹650</option>
+<option value="Butter Pound Cake">Butter Pound Cake - ₹450</option>
+<option value="Lemon Bundt Cake">Lemon Bundt Cake - ₹550</option>
+<option value="Traditional Fruitcake">Traditional Fruitcake - ₹850</option>
+    </select>
+
+    <input type="number" id="quantity" placeholder="Quantity" min="1" required>
+
+    <textarea id="notes" placeholder="Notes (optional)"></textarea>
+
+    <button type="submit">Order</button>
+
+  </form>
+</div>
+
+
+<!-- =======================
+     FOOTER (SAME)
+======================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>Sitemap</h3>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="salon.html">Salon</a>
+      <a href="grocery.html">Grocery</a>
+      <a href="playzone.html">Play Zone</a>
+      <a href="gifts.html">Gifts</a>
+      <a href="juice.html">Juice</a>
+      <a href="bakery.html">Bakery</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Address</h3>
+      <p>17km Stone, NH-19, Mathura-Delhi Road, P.O. Chaumuhan</p>
+      <p>Mathura - 281406, Uttar Pradesh</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacts</h3>
+      <p>
+        +91-5662-250900,
+        250909, 241489,
+        +91-9927064017
+      </p>
+      <p>glauniversity@gla.ac.in</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <div class="icons">
+        <span>📘</span>
+        <span>📸</span>
+        <span>🌐</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 GD Subway | All Rights Reserved
+  </div>
+</footer>
+
+<script>
+  // Add this at the start of your script section
+if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+}
+document.getElementById("bakeryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+    const notes = document.getElementById("notes").value;
+
+    
+    // DYNAMIC PRICE EXTRACTION
+    let extractedPrice = 0;
+    const allSelects = document.querySelectorAll('select');
+    let targetSelect = allSelects.length > 0 ? allSelects[0] : null;
+    if (targetSelect && targetSelect.selectedIndex >= 0) {
+        const selectedText = targetSelect.options[targetSelect.selectedIndex].text;
+        const match = selectedText.match(/₹([\d,]+)/);
+        if (match) extractedPrice = parseInt(match[1].replace(/,/g, ''), 10);
+    }
+    
+    let dynamicQuantity = 1;
+    const dynQtyInput = document.querySelector('input[type="number"], #quantity');
+    if (dynQtyInput) {
+        dynamicQuantity = parseInt(dynQtyInput.value, 10) || 1;
+    }
+    const totalPrice = extractedPrice * dynamicQuantity;
+    
+    fetch("http://localhost:3000/api/orders", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            type: "bakery",   // 🔥 VERY IMPORTANT
+            name,
+            item,
+            quantity,
+            notes
+        , price: extractedPrice, total: totalPrice, rollNumber: sessionStorage.getItem("rollNumber"), type: "bakery"})
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message + " Total: ₹" + totalPrice);
+        document.getElementById("bakeryForm").reset();
+    })
+    .catch(err => console.error(err));
+});
+</script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const userRole = sessionStorage.getItem('userRole');
+        const adminBtns = document.querySelectorAll('.admin-btn');
+        if (userRole !== 'admin') {
+            adminBtns.forEach(btn => btn.style.display = 'none');
+        }
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const name = sessionStorage.getItem('userName');
+    
+    // Update all welcome texts
+    const displayNames = document.querySelectorAll('.user-display-name');
+    displayNames.forEach(el => { el.innerText = name || 'User'; });
+    
+    // Auto-fill the order form name field
+    const nameInput = document.getElementById('name');
+    if (nameInput) {
+        nameInput.value = name || '';
+        nameInput.setAttribute('readonly', 'true');
+        nameInput.style.backgroundColor = '#1e293b'; // slightly darker to indicate it's readonly
+        nameInput.style.color = '#94a3b8';
+        nameInput.style.cursor = 'not-allowed';
+    }
+});
+
+function logout() {
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+}
+</script>
+
+</body>
+
+</html>
