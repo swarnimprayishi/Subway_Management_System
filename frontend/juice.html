@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Juice</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>🧃 Juice Corner</header>
+
+<div style="background: #0f172a; color: #94a3b8; padding: 10px; text-align: center;">
+    Welcome, <span class="user-display-name" style="color: #3b82f6; font-weight: bold;"></span>! | <a href="#" onclick="logout()" style="color: #ef4444; margin-left: 15px;">Logout</a>
+</div>
+
+
+<nav>
+<a href="index.html">Home</a>
+<a href="food.html">Food</a>
+<a href="salon.html">Salon</a>
+<a href="grocery.html">Grocery</a>
+<a href="playzone.html">Play Zone</a>
+<a href="gifts.html">Gifts</a>
+<a href="juice.html">Juice</a>
+<a href="bakery.html">Bakery</a>
+  <a href="orders.html" onclick="showOrders()">My Orders</a>
+  
+  <a href="admin.html" class="admin-btn">🛡️ Admin</a>
+    
+</nav>
+
+<!-- 🧃 HERO SECTION -->
+<section class="juice-hero">
+  <div class="hero-content">
+
+    <div class="delivery-pill">
+      <span class="status-dot"></span>
+      Freshness in every sip
+    </div>
+
+    <h1>Fresh & Healthy Juices 🧃</h1>
+    <p>Enjoy natural, refreshing juices made with love</p>
+
+  </div>
+</section>
+
+<!-- 🧃 PRODUCTS -->
+<section class="juice-products">
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="https://regalplus.com/cdn/shop/files/RawAamPanna.jpg?v=1736524680">
+      <h3>Mango Juice</h3>
+    </div>
+
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/51pvJ9-9iHL.jpg">
+      <h3>Cold Coffee</h3>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images-eu.ssl-images-amazon.com/images/I/51i5oPdgHhL._AC_UL210_SR210,210_.jpg">
+      <h3>Pineapple Juice</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🧃 ORDER FORM -->
+<div class="container">
+  <div class="juice-card">
+
+    <h2>Order Juice</h2>
+
+    <form id="juiceForm">
+
+      <input type="text" id="name" placeholder="Name" required>
+
+      <select id="item" required>
+        <option value="">Select Juice</option>
+        <option value="Orange Juice">Orange Juice ₹110</option>
+        <option value="Mango Juice">Mango Juice ₹100</option>
+        <option value="Apple Juice">Apple Juice ₹115</option>
+        <option value="Orange Juice">Orange Juice - ₹110</option>
+<option value="Mango Juice">Mango Juice - ₹120</option>
+<option value="Apple Juice">Apple Juice - ₹115</option>
+<option value="Pineapple Juice">Pineapple Juice - ₹130</option>
+<option value="Watermelon Juice">Watermelon Juice - ₹90</option>
+<option value="Pomegranate Juice">Pomegranate Juice - ₹180</option>
+<option value="Grape Juice">Grape Juice - ₹140</option>
+<option value="Mixed Fruit Juice">Mixed Fruit Juice - ₹110</option>
+<option value="Guava Juice">Guava Juice - ₹100</option>
+<option value="Lychee Juice">Lychee Juice - ₹150</option>
+<option value="Lemonade Classic">Lemonade Classic - ₹60</option>
+<option value="Mint Lime Soda">Mint Lime Soda - ₹80</option>
+<option value="Cranberry Juice">Cranberry Juice - ₹190</option>
+<option value="Kiwi Blast Juice">Kiwi Blast Juice - ₹170</option>
+<option value="Sugarcane Juice">Sugarcane Juice - ₹50</option>
+<option value="Tender Coconut Water">Tender Coconut Water - ₹65</option>
+<option value="Carrot Juice">Carrot Juice - ₹95</option>
+<option value="Beetroot Detox Juice">Beetroot Detox Juice - ₹110</option>
+<option value="Aloe Vera Juice">Aloe Vera Juice - ₹140</option>
+<option value="Amla Health Juice">Amla Health Juice - ₹120</option>
+<option value="Blueberry Mocktail">Blueberry Mocktail - ₹220</option>
+<option value="Peach Iced Tea">Peach Iced Tea - ₹130</option>
+<option value="Lemon Iced Tea">Lemon Iced Tea - ₹120</option>
+<option value="Cold Brew Coffee">Cold Brew Coffee - ₹180</option>
+<option value="Classic Cold Coffee">Classic Cold Coffee - ₹150</option>
+<option value="Chocolate Milkshake">Chocolate Milkshake - ₹160</option>
+<option value="Strawberry Milkshake">Strawberry Milkshake - ₹160</option>
+<option value="Vanilla Milkshake">Vanilla Milkshake - ₹150</option>
+<option value="Mango Lassi">Mango Lassi - ₹90</option>
+<option value="Sweet Lassi">Sweet Lassi - ₹70</option>
+<option value="Salted Buttermilk">Salted Buttermilk - ₹40</option>
+<option value="Masala Chaas">Masala Chaas - ₹45</option>
+<option value="Thandai">Thandai - ₹120</option>
+<option value="Badam Milk (Hot)">Badam Milk (Hot) - ₹110</option>
+<option value="Rose Milk">Rose Milk - ₹80</option>
+<option value="Jeera Soda">Jeera Soda - ₹55</option>
+<option value="Ginger Ale">Ginger Ale - ₹110</option>
+<option value="Sparkling Water">Sparkling Water - ₹75</option>
+<option value="Tonic Water">Tonic Water - ₹95</option>
+<option value="Red Bull Energy">Red Bull Energy - ₹125</option>
+<option value="Monster Energy">Monster Energy - ₹120</option>
+<option value="Tomato Juice">Tomato Juice - ₹90</option>
+<option value="Cucumber Cooler">Cucumber Cooler - ₹85</option>
+<option value="Green Apple Soda">Green Apple Soda - ₹110</option>
+<option value="Passion Fruit Juice">Passion Fruit Juice - ₹190</option>
+<option value="Dragon Fruit Smoothie">Dragon Fruit Smoothie - ₹250</option>
+<option value="Avocado Shake">Avocado Shake - ₹280</option>
+<option value="Banana Smoothie">Banana Smoothie - ₹140</option>
+<option value="Papaya Juice">Papaya Juice - ₹100</option>
+<option value="Mosambi Juice">Mosambi Juice - ₹90</option>
+<option value="Blackcurrant Juice">Blackcurrant Juice - ₹160</option>
+<option value="Wild Berry Juice">Wild Berry Juice - ₹180</option>
+<option value="Apricot Nectar">Apricot Nectar - ₹210</option>
+<option value="Plum Juice">Plum Juice - ₹150</option>
+<option value="Pear Juice">Pear Juice - ₹135</option>
+<option value="Strawberry Lemonade">Strawberry Lemonade - ₹125</option>
+<option value="Watermelon Ginger Pop">Watermelon Ginger Pop - ₹115</option>
+<option value="Hibiscus Tea (Cold)">Hibiscus Tea (Cold) - ₹140</option>
+<option value="Matcha Iced Latte">Matcha Iced Latte - ₹280</option>
+<option value="Espresso Tonic">Espresso Tonic - ₹210</option>
+<option value="Affogato">Affogato - ₹240</option>
+<option value="Hot Chocolate">Hot Chocolate - ₹190</option>
+<option value="Masala Tea">Masala Tea - ₹30</option>
+<option value="Green Tea">Green Tea - ₹45</option>
+<option value="Earl Grey Tea">Earl Grey Tea - ₹90</option>
+<option value="Chamomile Tea">Chamomile Tea - ₹110</option>
+<option value="Kokum Sherbet">Kokum Sherbet - ₹70</option>
+<option value="Aam Panna">Aam Panna - ₹80</option>
+<option value="Jaljeera">Jaljeera - ₹40</option>
+<option value="Sol Kadhi">Sol Kadhi - ₹90</option>
+<option value="Kashmiri Kahwa">Kashmiri Kahwa - ₹150</option>
+<option value="Bel Juice">Bel Juice - ₹80</option>
+<option value="Kesar Pista Milk">Kesar Pista Milk - ₹130</option>
+<option value="Bournvita Milk">Bournvita Milk - ₹70</option>
+<option value="Horlicks Milk">Horlicks Milk - ₹70</option>
+<option value="Protein Shake (Whey)">Protein Shake (Whey) - ₹220</option>
+<option value="ABC Juice (Apple Beet Carrot)">ABC Juice - ₹160</option>
+<option value="Virgin Mojito">Virgin Mojito - ₹180</option>
+<option value="Piña Colada Mocktail">Piña Colada Mocktail - ₹210</option>
+<option value="Shirley Temple">Shirley Temple - ₹190</option>
+<option value="Blue Lagoon">Blue Lagoon - ₹180</option>
+<option value="Sunrise Mocktail">Sunrise Mocktail - ₹170</option>
+<option value="Grapefruit Juice">Grapefruit Juice - ₹220</option>
+<option value="Kala Khatta Soda">Kala Khatta Soda - ₹60</option>
+<option value="Ice Cream Soda">Ice Cream Soda - ₹110</option>
+<option value="Ginger Lemon Honey Tea">Ginger Lemon Honey Tea - ₹95</option>
+<option value="Bitter Lemon">Bitter Lemon - ₹100</option>
+<option value="Club Soda">Club Soda - ₹40</option>
+<option value="Diet Cola">Diet Cola - ₹50</option>
+<option value="Mineral Water (1L)">Mineral Water (1L) - ₹20</option>
+<option value="Electrolyte Drink">Electrolyte Drink - ₹60</option>
+<option value="Barley Water">Barley Water - ₹75</option>
+<option value="Wheatgrass Shot">Wheatgrass Shot - ₹90</option>
+<option value="Non-Alcoholic Beer">Non-Alcoholic Beer - ₹160</option>
+<option value="Root Beer">Root Beer - ₹180</option>
+<option value="Sarsaparilla">Sarsaparilla - ₹150</option>
+<option value="Elderflower Pressé">Elderflower Pressé - ₹240</option>
+<option value="Rhubarb Juice">Rhubarb Juice - ₹210</option>
+<option value="Cherry Juice">Cherry Juice - ₹195</option>
+<option value="Mulberry Juice">Mulberry Juice - ₹185</option>
+      </select>
+
+      <input type="number" id="quantity" placeholder="Quantity" min="1" required>
+
+      <textarea id="notes" placeholder="Notes (optional)"></textarea>
+
+      <button type="submit">Order</button>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h3>Sitemap</h3>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="salon.html">Salon</a>
+      <a href="grocery.html">Grocery</a>
+      <a href="playzone.html">Play Zone</a>
+      <a href="gifts.html">Gifts</a>
+      <a href="juice.html">Juice</a>
+      <a href="bakery.html">Bakery</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Address</h3>
+      <p>17km Stone, NH-19, Mathura-Delhi Road, P.O. Chaumuhan</p>
+      <p>Mathura - 281406, Uttar Pradesh</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacts</h3>
+      <p>
+        +91-5662-250900,
+        250909, 241489,
+        +91-9927064017
+      </p>
+      <p>glauniversity@gla.ac.in</p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <div class="icons">
+        <span>📘</span>
+        <span>📸</span>
+        <span>🌐</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 GD Subway | All Rights Reserved
+  </div>
+</footer>
+
+<!-- ✅ CONNECTED SCRIPT -->
+<script>
+  // Add this at the start of your script section
+if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+}
+document.getElementById("juiceForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+    const notes = document.getElementById("notes").value;
+
+    
+    // DYNAMIC PRICE EXTRACTION
+    let extractedPrice = 0;
+    const allSelects = document.querySelectorAll('select');
+    let targetSelect = allSelects.length > 0 ? allSelects[0] : null;
+    if (targetSelect && targetSelect.selectedIndex >= 0) {
+        const selectedText = targetSelect.options[targetSelect.selectedIndex].text;
+        const match = selectedText.match(/₹([\d,]+)/);
+        if (match) extractedPrice = parseInt(match[1].replace(/,/g, ''), 10);
+    }
+    
+    let dynamicQuantity = 1;
+    const dynQtyInput = document.querySelector('input[type="number"], #quantity');
+    if (dynQtyInput) {
+        dynamicQuantity = parseInt(dynQtyInput.value, 10) || 1;
+    }
+    const totalPrice = extractedPrice * dynamicQuantity;
+    
+    fetch("http://localhost:3000/api/orders", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            type: "juice",
+            name,
+            item,
+            quantity,
+            notes
+        , price: extractedPrice, total: totalPrice, rollNumber: sessionStorage.getItem("rollNumber"), type: "juice"})
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message + " Total: ₹" + totalPrice);
+        document.getElementById("juiceForm").reset();
+    })
+    .catch(err => console.error("Error:", err));
+});
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const userRole = sessionStorage.getItem('userRole');
+        const adminBtns = document.querySelectorAll('.admin-btn');
+        if (userRole !== 'admin') {
+            adminBtns.forEach(btn => btn.style.display = 'none');
+        }
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const name = sessionStorage.getItem('userName');
+    
+    // Update all welcome texts
+    const displayNames = document.querySelectorAll('.user-display-name');
+    displayNames.forEach(el => { el.innerText = name || 'User'; });
+    
+    // Auto-fill the order form name field
+    const nameInput = document.getElementById('name');
+    if (nameInput) {
+        nameInput.value = name || '';
+        nameInput.setAttribute('readonly', 'true');
+        nameInput.style.backgroundColor = '#1e293b'; // slightly darker to indicate it's readonly
+        nameInput.style.color = '#94a3b8';
+        nameInput.style.cursor = 'not-allowed';
+    }
+});
+
+function logout() {
+    sessionStorage.clear();
+    window.location.href = 'login.html';
+}
+</script>
+
+</body>
+
+</html>
