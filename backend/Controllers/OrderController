@@ -1,0 +1,19 @@
+// Logic to count bookings for the dashboard
+exports.getOrderStats = async (req, res) => {
+    // This assumes you are using a database like MongoDB
+    const total = await Order.countDocuments();
+    const confirmed = await Order.countDocuments({ status: 'confirmed' });
+    const pending = await Order.countDocuments({ status: 'new' });
+    const cancelled = await Order.countDocuments({ status: 'cancelled' });
+    const allOrders = await Order.find().sort({ createdAt: -1 });
+
+    res.json({ total, confirmed, pending, cancelled, allOrders });
+};
+
+// Logic to change status when you click the dropdown
+exports.updateOrderStatus = async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+    await Order.findByIdAndUpdate(id, { status });
+    res.json({ message: "Status Updated" });
+};
