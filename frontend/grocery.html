@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Grocery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+  <header>🛒 Grocery</header>
+
+  <div style="background: #0f172a; color: #94a3b8; padding: 10px; text-align: center;">
+    Welcome, <span class="user-display-name" style="color: #3b82f6; font-weight: bold;"></span>! | <a href="#"
+      onclick="logout()" style="color: #ef4444; margin-left: 15px;">Logout</a>
+  </div>
+
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="food.html">Food</a>
+    <a href="salon.html">Salon</a>
+    <a href="grocery.html">Grocery</a>
+    <a href="playzone.html">Play Zone</a>
+    <a href="gifts.html">Gifts</a>
+    <a href="juice.html">Juice</a>
+    <a href="bakery.html">Bakery</a>
+    <a href="orders.html" onclick="showOrders()">My Orders</a>
+
+    <a href="admin.html" class="admin-btn">🛡️ Admin</a>
+
+  </nav>
+
+  <section class="grocery-hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <div class="delivery-pill">
+          <span class="status-dot"></span>
+          Fresh & Daily Essentials
+        </div>
+        <h1 class="hero-title">Quick, Easy, Reliable Shopping</h1>
+        <p class="hero-subtitle">
+          Get fresh groceries, daily essentials, snacks, and more delivered
+          quickly within campus. Easy ordering, fast delivery!
+        </p>
+        <div class="hero-btns">
+          <a href="#order-section" class="btn-primary">Shop Now</a>
+          <a href="#" class="btn-secondary">View Items</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="order-section" class="form-wrapper">
+    <div class="order-container">
+      <h2 class="form-header">Order Grocery</h2>
+
+      <div class="item-tags">
+        <p>Popular Items:</p>
+        <div class="tag-group">
+          <span class="tag">🥛 Milk</span>
+          <span class="tag">🍞 Bread</span>
+          <span class="tag">🍎 Fruits</span>
+          <span class="tag">🍪 Snacks</span>
+        </div>
+      </div>
+
+      <form class="styled-form">
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="field">
+          <label>Select Grocery</label>
+          <select required>
+            <option value="" disabled selected>Choose an item...</option>
+            <option>Milk (1L) - ₹30</option>
+            <option>Fresh Bread - ₹20</option>
+            <option>Mixed Snacks- ₹50</option>
+            <option>Milk (1L) - Full Cream - ₹68</option>
+            <option>Fresh White Bread (400g) - ₹45</option>
+            <option>Mixed Fruit Jam - ₹185</option>
+            <option>Salted Potato Chips - ₹20</option>
+            <option>Instant Noodles (Masala) - ₹14</option>
+            <option>Paneer (200g) - ₹95</option>
+            <option>Amul Butter (100g) - ₹60</option>
+            <option>Brown Bread (Whole Wheat) - ₹55</option>
+            <option>Greek Yogurt (Blueberry) - ₹75</option>
+            <option>Cheese Slices (10 Pack) - ₹175</option>
+            <option>Aloo Bhujia (200g) - ₹55</option>
+            <option>Roasted Cashews (100g) - ₹220</option>
+            <option>Milk Chocolate Bar - ₹40</option>
+            <option>Premium Tea Leaves (250g) - ₹165</option>
+            <option>Instant Coffee Powder (50g) - ₹195</option>
+            <option>Orange Juice (1L) - ₹110</option>
+            <option>Multigrain Biscuits - ₹80</option>
+            <option>Tomato Ketchup (Bottle) - ₹135</option>
+            <option>Peanut Butter (Crunchy) - ₹210</option>
+            <option>Corn Flakes (500g) - ₹185</option>
+            <option>Frozen Green Peas (500g) - ₹110</option>
+            <option>French Fries (Frozen) - ₹160</option>
+            <option>Basmati Rice (1kg) - ₹125</option>
+            <option>Wheat Flour (Atta - 5kg) - ₹275</option>
+            <option>Sunflower Oil (1L) - ₹145</option>
+            <option>Iodized Salt (1kg) - ₹28</option>
+            <option>Granulated Sugar (1kg) - ₹48</option>
+            <option>Moong Dal (1kg) - ₹160</option>
+            <option>Garlic Paste (Jar) - ₹55</option>
+            <option>Mixed Herbs Oregano - ₹99</option>
+            <option>Mayonnaise (Eggless) - ₹120</option>
+            <option>Nachos (Cheese Flavor) - ₹65</option>
+            <option>Popcorn (Butter Salted) - ₹45</option>
+            <option>Dark Chocolate (80%) - ₹155</option>
+            <option>Spicy Banana Chips - ₹70</option>
+            <option>Curd (Cup) - ₹25</option>
+            <option>Lassi (Bottle) - ₹35</option>
+            <option>Low-Fat Skimmed Milk - ₹62</option>
+            <option>Pav Bun (6 Pack) - ₹30</option>
+            <option>Cookies (Butter Scotch) - ₹110</option>
+            <option>Honey (250g) - ₹190</option>
+            <option>Oats (1kg) - ₹240</option>
+            <option>Muesli (Fruit & Nut) - ₹350</option>
+            <option>Green Tea Bags (25 Pack) - ₹170</option>
+            <option>Lemonade Powder - ₹85</option>
+            <option>Hazelnut Spread (Jar) - ₹375</option>
+            <option>Diet Chivda Snack - ₹90</option>
+            <option>Masala Peanuts - ₹45</option>
+            <option>Salted Pistachios (100g) - ₹280</option>
+            <option>Pani Puri Kit - ₹120</option>
+            <option>Gummy Candy Pack - ₹50</option>
+            <option>Dry Fruit Cake - ₹150</option>
+            <option>Wafers (Vanilla) - ₹60</option>
+            <option>Schezwan Sauce - ₹85</option>
+            <option>Soy Sauce (Bottle) - ₹75</option>
+            <option>Pasta (Penne - 500g) - ₹115</option>
+            <option>Tomato Soup (Instant) - ₹35</option>
+            <option>Apple Cider Vinegar - ₹420</option>
+            <option>Coconut Water (Bottle) - ₹60</option>
+            <option>Energy Drink Can - ₹115</option>
+            <option>Tofu (200g) - ₹105</option>
+            <option>Cream Cheese (Tub) - ₹299</option>
+            <option>Canned Sweet Corn - ₹85</option>
+            <option>Pickle (Mango - 500g) - ₹140</option>
+            <option>Roasted Makhana - ₹165</option>
+            <option>Choco Fills Cereal - ₹195</option>
+            <option>Whipped Cream (Spray Can) - ₹450</option>
+            <option>Baking Soda (Box) - ₹40</option>
+            <option>Maple Syrup - ₹650</option>
+            <option>Olive Oil (Extra Virgin) - ₹850</option>
+            <option>Garlic Bread Sticks - ₹85</option>
+            <option>Croissant (Butter) - ₹90</option>
+            <option>Red Chilli Powder - ₹85</option>
+            <option>Turmeric Powder - ₹45</option>
+            <option>Garam Masala (50g) - ₹65</option>
+            <option>Cumin Seeds (Jeera) - ₹115</option>
+            <option>Besan (Gram Flour) - ₹90</option>
+            <option>Semolina (Suji) - ₹55</option>
+            <option>Poha (Flattened Rice) - ₹65</option>
+            <option>Sabudana (Tapioca) - ₹110</option>
+            <option>Vermicelli (Roasted) - ₹60</option>
+            <option>Basmati Rice (Premium) - ₹180</option>
+            <option>Digestive Biscuits - ₹75</option>
+            <option>Chocolate Cookies - ₹120</option>
+            <option>Sparkling Water - ₹65</option>
+            <option>Cold Brew Coffee - ₹150</option>
+            <option>Fruit Yogurt (Strawberry) - ₹30</option>
+            <option>Condensed Milk - ₹140</option>
+            <option>Marshmallows (Bag) - ₹120</option>
+            <option>Peanut Chikki - ₹50</option>
+            <option>Rusk (Toast Biscuits) - ₹45</option>
+            <option>Eggless Cake Rusk - ₹130</option>
+            <option>Custard Powder - ₹80</option>
+            <option>Baking Powder - ₹55</option>
+            <option>Vanilla Essence - ₹110</option>
+            <option>Cocoa Powder - ₹210</option>
+            <option>Hot Chocolate Mix - ₹320</option>
+            <option>Fruit & Nut Mix (Raw) - ₹450</option>
+            <option>Popcorn Seeds (Raw) - ₹80</option>
+            <option>Lollipop (Multi Pack) - ₹60</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Quantity</label>
+          <div class="qty-wrapper">
+            <input type="number" value="1" min="1" style="text-align: center;">
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Order Now</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Sitemap</h3>
+        <a href="index.html">Home</a>
+        <a href="food.html">Food</a>
+        <a href="salon.html">Salon</a>
+        <a href="grocery.html">Grocery</a>
+        <a href="playzone.html">Play Zone</a>
+        <a href="gifts.html">Gifts</a>
+        <a href="juice.html">Juice</a>
+        <a href="bakery.html">Bakery</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Address</h3>
+        <p>17km Stone, NH-19, Mathura-Delhi Road, P.O. Chaumuhan</p>
+        <p>Mathura - 281406, Uttar Pradesh</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contacts</h3>
+        <p>+91-5662-250900, 250909, 241489, +91-9927064017</p>
+        <p>glauniversity@gla.ac.in</p>
+      </div>
+
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <div class="icons">
+          <span>📘</span> <span>📸</span> <span>🌐</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 GD Subway | All Rights Reserved
+    </div>
+  </footer>
+  <script>
+    // Add this at the start of your script section
+    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+    document.querySelector(".styled-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Finding elements by their tag and placeholder exactly as written in your HTML
+      const nameInput = document.querySelector('input[placeholder="Enter your full name"]');
+      const itemSelect = document.querySelector('select');
+      const qtyInput = document.querySelector('input[type="number"]');
+
+
+      // DYNAMIC PRICE EXTRACTION
+      let extractedPrice = 0;
+      const allSelects = document.querySelectorAll('select');
+      let targetSelect = allSelects.length > 0 ? allSelects[0] : null;
+      if (targetSelect && targetSelect.selectedIndex >= 0) {
+        const selectedText = targetSelect.options[targetSelect.selectedIndex].text;
+        const match = selectedText.match(/₹([\d,]+)/);
+        if (match) extractedPrice = parseInt(match[1].replace(/,/g, ''), 10);
+      }
+
+      let dynamicQuantity = 1;
+      const dynQtyInput = document.querySelector('input[type="number"], #quantity');
+      if (dynQtyInput) {
+        dynamicQuantity = parseInt(dynQtyInput.value, 10) || 1;
+      }
+      const totalPrice = extractedPrice * dynamicQuantity;
+
+      fetch("http://localhost:3000/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          type: "grocery", // Set to grocery for your CSV
+          name: nameInput.value,
+          item: itemSelect.value,
+          quantity: qtyInput.value,
+          notes: "N/A" // Default because this HTML form has no notes field
+          , price: extractedPrice, total: totalPrice, rollNumber: sessionStorage.getItem("rollNumber"), type: "grocery"
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(data.message + " Total: ₹" + totalPrice);
+          document.querySelector(".styled-form").reset();
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          alert("Failed to connect to server. Make sure server.js is running.");
+        });
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userRole = sessionStorage.getItem('userRole');
+      const adminBtns = document.querySelectorAll('.admin-btn');
+      if (userRole !== 'admin') {
+        adminBtns.forEach(btn => btn.style.display = 'none');
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const name = sessionStorage.getItem('userName');
+
+      // Update all welcome texts
+      const displayNames = document.querySelectorAll('.user-display-name');
+      displayNames.forEach(el => { el.innerText = name || 'User'; });
+
+      // Auto-fill the order form name field
+      const nameInput = document.getElementById('name');
+      if (nameInput) {
+        nameInput.value = name || '';
+        nameInput.setAttribute('readonly', 'true');
+        nameInput.style.backgroundColor = '#1e293b'; // slightly darker to indicate it's readonly
+        nameInput.style.color = '#94a3b8';
+        nameInput.style.cursor = 'not-allowed';
+      }
+    });
+
+    function logout() {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    }
+  </script>
+
+</body>
+
+</html>
